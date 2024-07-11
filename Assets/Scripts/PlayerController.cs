@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI; // 需要导入这个命名空间以使用UI组件
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public const float horizontalSpeed = 50f;
     private const float verticalSpeed = 50f;
     public const float jumpSpeed = 150f;
+    public const float maxSpeed = 150f;
     private const float g = -350f;
     private float gravity = g;
     private bool isGrounded = false;
@@ -34,6 +37,12 @@ public class PlayerController : MonoBehaviour
         CheckAnime();
         Move();
         speed.y += gravity * Time.smoothDeltaTime;
+        if (speed.y <= -300f)
+        {
+            speed.y = -300f;
+        }
+        Debug.Log(speed.y);
+
     }
     private void Move()
     {

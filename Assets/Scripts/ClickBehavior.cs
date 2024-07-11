@@ -12,11 +12,6 @@ public class ClickBehavior : MonoBehaviour
 
     private float lastClickTime = -1f;
 
-    void OnMouseDown()
-    {
-        CheckDoubleClick();
-    }
-
     void Start()
     {
         if (gameObject.GetComponent<BoxCollider2D>() == null)
@@ -27,6 +22,7 @@ public class ClickBehavior : MonoBehaviour
 
     void Update()
     {   
+        CheckMouseDown();
         CheckSingleClick();
         CheckRightClick();
     }
@@ -88,6 +84,20 @@ public class ClickBehavior : MonoBehaviour
         }
     }
 
+    void CheckMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider != null && hit.collider.gameObject == gameObject)
+                {
+                    CheckDoubleClick();
+                }
+            }
+        }
+    }
     public void testRightCLick()
     {
         Debug.Log("Right button clicked.");
