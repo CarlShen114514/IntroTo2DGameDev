@@ -41,15 +41,22 @@ public class DragBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            foreach (RaycastHit2D hit in hits)
+            RaycastHit2D hit;
+            if (hits.Length == 0)
             {
-                if (hit.collider != null && hit.collider.gameObject == gameObject)
-                {
-                    DragInit();
-                    // 打印正在拖拽的物体名称
-                    Debug.Log("正在拖拽的物体: " + gameObject.name);
-                }
+                return;
             }
+            else
+            {
+                hit = hits[^1];
+            }
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                DragInit();
+                // 打印正在拖拽的物体名称
+                Debug.Log("正在拖拽的物体: " + gameObject.name);
+            }
+
         }
     }
 

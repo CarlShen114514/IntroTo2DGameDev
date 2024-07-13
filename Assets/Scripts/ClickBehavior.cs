@@ -56,20 +56,28 @@ public class ClickBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            RaycastHit2D hit = hits[^1];
-            if (hit.collider != null)
+            RaycastHit2D hit;
+            if (hits.Length == 0)
             {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-                }
-                else{
-                    gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                }
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
             else
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                hit = hits[^1];
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject == gameObject)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                    }
+                    else{
+                        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    }
+                }
+                else
+                {
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                }
             }
         }
     }
@@ -80,7 +88,15 @@ public class ClickBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            RaycastHit2D hit = hits[^1];
+            RaycastHit2D hit;
+            if (hits.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                hit = hits[^1];
+            }
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 onRightClick.Invoke();
@@ -93,7 +109,15 @@ public class ClickBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            RaycastHit2D hit = hits[hits.Length - 1];
+            RaycastHit2D hit;
+            if (hits.Length == 0)
+            {
+                return;
+            }
+            else
+            {
+                hit = hits[^1];
+            }
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 CheckDoubleClick();
