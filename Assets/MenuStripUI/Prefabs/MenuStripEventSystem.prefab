@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1091033689432802282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091033689432802284}
+  - component: {fileID: 1091033689432802285}
+  m_Layer: 0
+  m_Name: MenuStripEventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091033689432802284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091033689432802282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1091033689432802285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091033689432802282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39bd7aaca384494ca14007886153309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasTransform: {fileID: 0}
+  theme: {fileID: 11400000, guid: dda249ffe261b9946b9e6107fdcc6158, type: 2}
+  menuTemplate: {fileID: 641289582989360583, guid: bfe45d10b40063d4087d9021b280fe10,
+    type: 3}
+  menuItemTemplate: {fileID: 5961582441796408638, guid: 343d225f0055d3b4da562df2d2dfee74,
+    type: 3}
+  menuData:
+  - key: menu1
+    dockTransform: {fileID: 0}
+    itemData:
+    - name: File
+      icon: {fileID: 0}
+      isSplit: 0
+      isBold: 0
+      isDisable: 0
+      shortcutKey: 0
+      shortcutLetter: 
+      childItems:
+      - name: File1
+        icon: {fileID: 0}
+        isSplit: 0
+        isBold: 0
+        isDisable: 0
+        shortcutKey: 0
+        shortcutLetter: 
+        childItems: []
+      - name: File2
+        icon: {fileID: 0}
+        isSplit: 0
+        isBold: 0
+        isDisable: 0
+        shortcutKey: 0
+        shortcutLetter: 
+        childItems: []
+      - name: File3
+        icon: {fileID: 0}
+        isSplit: 0
+        isBold: 0
+        isDisable: 0
+        shortcutKey: 0
+        shortcutLetter: 
+        childItems: []
+    - name: Save
+      icon: {fileID: 0}
+      isSplit: 1
+      isBold: 0
+      isDisable: 0
+      shortcutKey: 0
+      shortcutLetter: 
+      childItems: []
+    - name: Exit
+      icon: {fileID: 0}
+      isSplit: 0
+      isBold: 0
+      isDisable: 0
+      shortcutKey: 0
+      shortcutLetter: 
+      childItems: []
+    menuUI: {fileID: 0}
+  menuUIs: []
+  m_OnMenuClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GetMenuInfo, Assembly-CSharp
+        m_MethodName: GetMenuClickInfo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
