@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private TextMeshProUGUI Note;
     private bool isClimbing=false;
     public GameObject footCollider; // 脚底碰撞器
+    public GameObject canvasGameOver; // 死亡界面的 Canvas
     private void Start()
     {
         Debug.Log(SceneManager.GetActiveScene().buildIndex);
@@ -214,10 +215,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void Die(){
-        Text victoryText = PanelGameOver.GetComponentInChildren<Text>();
-        victoryText.text = gameOverMessage;
-        PanelGameOver.SetActive(true);
+        // Text victoryText = PanelGameOver.GetComponentInChildren<Text>();
+        // victoryText.text = gameOverMessage;
+        // PanelGameOver.SetActive(true);
         Destroy(gameObject); // 销毁玩家对象
+        ShowDeathCanvas();
+        Time.timeScale = 0f;
+    }
+    private void ShowDeathCanvas()
+    {
+        Text deathText = canvasGameOver.GetComponentInChildren<Text>();
+        deathText.text = gameOverMessage;
+        Debug.Log(gameOverMessage);
+        Debug.Log(deathText.text);
+        canvasGameOver.SetActive(true);
         Time.timeScale = 0f;
     }
     void CheckAccelerate(){
